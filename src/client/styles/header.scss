@@ -1,0 +1,46 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background: linear-gradient(to right, #5e5c5caf 1%, transparent 100%);
+    border: 1px solid #545454;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+    backdrop-filter:saturate(180%) blur(20px);
+    min-width: 160px;
+
+    position:sticky;
+    top:0px;
+.logo{
+    padding-top: 5px;
+    align-self: center;
+    
+}
+.mynav{
+    align-self: center;
+    // right: 0px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // font-size: xx-large;
+    animation: year 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) alternate both infinite;
+    color: goldenrod;
+ text-shadow: gold;
+ font-weight: bolder;
+ 
+}
+
+}
+@keyframes year {
+    from {
+        color: goldenrod;
+        font-size: small;
+        // padding-right:  50%;
+    }
+
+    to {
+        color:gold;
+        font-size: x-large;
+        // padding-right: 25%;
+    }
+    
+}

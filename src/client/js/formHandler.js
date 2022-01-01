@@ -1,15 +1,53 @@
-function handleSubmit(event) {
-    event.preventDefault()
+import { postData } from "./getPost"
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
+const handleSubmit = async (event) => {
+  event.preventDefault()
+  const sendPost = async (data) => {
+    const response = await postData('http://localhost:8081/nlp', data);
+    try {
+      console.log('getWeatherDataWeb(): ', response)
+      return response;
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
+  document.getElementById('results').innerHTML = ''
+  const target = document.getElementById('name').value
+  const isUrl = (e) => {
+    let u;
+    try {
+      u = new URL(e);
+    } catch (_) {
+      return false;
+    }
+    return u.protocol === "http:" || u.protocol === "https:";
+  }
+  const type = isUrl(target) ? 'url' : 'txt';
+  Client.checkForName(target)
+  console.log("::: Form Submitted :::")
+  return new Promise(async (resolve, _) => {
+    resolve(await sendPost({ target, type }));
+  })
+    .then(async (res) => {
+      let frag = document.createDocumentFragment();
+      const isString = e => (typeof e === 'string' || e instanceof String)
+      let table = document.createElement('table');
+      Object.keys(res).filter(k => isString(res[k])).map(e => {
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        td1.innerHTML = e;
+        td2.innerHTML = res[e]
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        table.appendChild(tr);
+      })
+      frag.appendChild(table);
+      document.getElementById('results').append(frag)
+      if (res.status.msg !== 'OK') document.getElementById('results').innerHTML = res.status.msg
+      document.getElementById('name').value = ''
+      document.getElementById('name').style.textDecoration = 'none'
     })
 }
 

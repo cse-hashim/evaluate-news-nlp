@@ -1,0 +1,40 @@
+form, .myform {
+    border: 1px solid #545454;
+    border-radius: 20px;
+    background-color: aquamarine  ;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) ;
+  background: linear-gradient(to right, #5e5c5caf 1%, transparent 100%);
+  backdrop-filter:saturate(180%) blur(20px);
+      input {
+          color:whitesmoke;
+        background-color: rgba(146, 72, 67, 0.774);
+        border-radius: 20px;
+        padding: 5px 20px;
+        width: 100%;
+        line-height: 16px;
+        margin: 10px 0;
+        align-self: center;
+        text-align: center;
+        min-width: 160px;
+
+        &::placeholder{
+            color:rgba(255, 255, 255, 0.562);
+        }
+        &[type='submit']{
+            width: 50%;
+            color:whitesmoke;
+            background-color: green;
+            &:hover{
+                background-color: brown;
+                text-decoration: underline;
+                // color: black;
+            }
+        }
+    }
+    
+}

@@ -2,30 +2,27 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <title>NLP-News</title>
+        <link id='favicon' rel="icon" type="image/svg">
     </head>
 
-    <body>
+    <body onload="toggle_snow()">
+        <div id="snow"></div>
 
         <header>
-            <div class="">
-                Logo
+            <div class="logo">
+                <img id='logo' width="32px" height="32px" alt="Logo"/>
             </div>
-            <div class="">
-                navigation
+            <div class="mynav">
+                -
             </div>
         </header>
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form name='myform' class="myform" onsubmit="return handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" onblur="Client.onBlur()" placeholder="URL/Text">
+                    <input type="submit" name="submit" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
@@ -36,8 +33,9 @@
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p><a href="https://cse-hashim.github.io/cv/">Hashim Hossam</a></p>
         </footer>
 
     </body>
+
 </html>
