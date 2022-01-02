@@ -11,7 +11,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const port = 8081
-const _path = require('path')
+const path = require('path')
 const { FormData } = require('formdata-node');
 const mockAPIResponse = require('./mockAPI.js')
 
@@ -36,7 +36,7 @@ app.listen(port, () => {
 })
 
 app.get('/', (req, res) => {
-  res.sendFile(_path.resolve('src/client/views/index.html'))
+  res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 app.get('/test', (req, res) => {
@@ -97,7 +97,7 @@ if(process.env.TARGET==='netlify'){
   const serverless = require('serverless-http');
 
   app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(_ path.join(__dirname, '../index.html')));
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
