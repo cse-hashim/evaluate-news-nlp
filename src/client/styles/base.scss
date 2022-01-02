@@ -20,26 +20,22 @@ body {
                 background-color: red;
                 width: 80%;
                 min-width: 300px;
-            color:#231E23;
+                color:#231E23;
                 margin-left: auto;
                 margin-right: auto;
                 backdrop-filter:saturate(180%) blur(20px);
-                    min-height: 100px;
+                min-height: 100px;
                 display: flex;
                 justify-content: space-between;
                 padding: 10px ;
                 background: linear-gradient(to right, #c7c1c1af 20%, transparent 100%);
                 border: 1px solid #545454;
                 border-radius: 20px;
-            &::before{
+                &::before{
                 // content: 'Form Results';
                 position: fixed;
-            
+                }
             }
-            }
-            
-            
-            
         }        
     }
 }
