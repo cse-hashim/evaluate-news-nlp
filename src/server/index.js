@@ -97,7 +97,7 @@ if(process.env.TARGET==='netlify'){
   const serverless = require('serverless-http');
 
   app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(_path.join(__dirname, '../index.html')));
+app.use('/', (req, res) => res.sendFile(_ path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
