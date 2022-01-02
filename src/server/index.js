@@ -29,7 +29,7 @@ app.use(cors());
 app.use(express.static('dist'))
 
 console.log(__dirname)
-
+if(process.env.TARGET==='local')
 app.listen(port, () => {
   console.log(`Hashim Hossam <computetional.h@gmail.com>: welcome to my server;\nserver: i am running on localhost:${port}`);
   console.log(`Your API key is ${process.env.API_KEY}`);
@@ -93,3 +93,13 @@ app.post('/addEntry', (req, res) => {
   res.status(200).send(req.body);
 });
 
+if(process.env.TARGET==='netlify'){
+  const serverless = require('serverless-http');
+
+  app.use('/.netlify/functions/server', router);  // path must route to lambda
+app.use('/', (req, res) => res.sendFile(_path.join(__dirname, '../index.html')));
+
+module.exports = app;
+module.exports.handler = serverless(app);
+
+}
