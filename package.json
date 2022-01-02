@@ -1,10 +1,10 @@
 {
   "name": "evaluate-news-nlp-hashim",
   "version": "1.0.0",
-  "main": "functions/server.js",
+  "main": "functions/index.js",
   "scripts": {
     "test": "jest",
-    "build": "netlify-lambda build express",
+    "build": "netlify-lambda build src/server",
     "start": "node src/server/index.js",
     "debug-serv": "node --inspect --inspect-brk src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
